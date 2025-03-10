@@ -1,0 +1,23 @@
+<div class="fixed z-50 lg:grid lg:grid-cols-2  lg:bg-white  text-yellow   list-none font-roboto text-2xl px-16 py-10 items-center md:sticky top-0">
+  <div class="flex  items-center justify-between ">
+    <li class=""><img src="./../../../assets/logo.png" class="w-300"/></li>
+    <mat-icon (click)="toggleMenu()" class="md:opacity-0 text-black text-2xl">
+      {{ isMenuOpen ? 'close' : 'menu' }}
+    </mat-icon>
+  </div>
+  <div class="flex text-center lg:place-content-between w-full">
+    <ul class="flex flex-col items-center  bg-white w-full z-[-1] md:z-auto lg:opacity-100"
+      [ngClass]="{'opacity-100': isMenuOpen, 'opacity-0': !isMenuOpen}">
+      <div class="flex flex-col lg:flex-row items-center gap-10">
+        <li class="mx-4 my-6 md:my-0 transition-500"><a routerLink="" routerLinkActive="text-principal">Home</a></li>
+        <li class="mx-4 my-6 md:my-0"><a routerLink="aboutus" routerLinkActive="text-principal">About us</a></li>
+        <li class="mx-4 my-6 md:my-0">Game</li>
+        <li class="mx-4 my-6 md:my-0">Contact</li>
+        <li class="mx-4 my-6 md:my-0">Pets</li>
+        <li>
+          <button class="uppercase bg-principal px-2 rounded-principal w-180 h-40 text-white">Adopt Now</button>
+        </li>
+      </div>
+    </ul>
+  </div>
+</div>

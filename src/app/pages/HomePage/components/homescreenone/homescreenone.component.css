@@ -1,0 +1,17 @@
+.imagen {
+  width: 550.42px;
+  height: 750px;
+  bottom: 0;
+  position: absolute;
+
+}
+
+svg{
+  position: absolute;
+
+  z-index: -2;
+  bottom: 0;
+  overflow: hidden;
+  background-color: transparent;
+}
+

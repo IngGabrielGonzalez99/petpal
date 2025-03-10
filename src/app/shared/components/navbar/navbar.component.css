@@ -1,0 +1,9 @@
+button:hover{
+  background-color: red;
+}
+
+.active {
+  font-weight: bold;
+  font-size: 40px;
+  color: red;
+}

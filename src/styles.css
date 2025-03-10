@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.principal {
+  font-family: "Roboto", serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-size: 24px;
+  font-style: normal;
+  line-height: 28.13px;
+  letter-spacing: 10%;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
