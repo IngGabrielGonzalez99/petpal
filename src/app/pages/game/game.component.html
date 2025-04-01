@@ -1,0 +1,30 @@
+<h3 class="text-center font-bold text-principal text-6xl font-press">Play & Enjoy!</h3>
+<div class="flex justify-center">
+    <div class="bg-gradient-to-t from-principal to-yellow  h-700 w-1200 mt-4 static mx-20">
+        <div class="flex flew-row place-content-center">
+            <p class="text-gray_principal font-bold tracking-[0.05em] text-8xl absolute mt-40 font-press">PETGAME</p>
+            <p class="text-white font-bold text-5xl tracking-[0.05em] absolute mt-64 font-micro uppercase">Welcome to petpal game</p>
+             <img  class="absolute bottom-0 mb-16" src="../../../assets/dog.png"/>
+             <button  (click)="toggleFullScreen()" class="absolute bottom-72 bg-yellow w-180 h-60 p-2 rounded-xl text-gray_principal font-bold text-2xl">START</button>
+        </div>
+        <img class="w-full h-full py-4 px-4" src="https://s3-alpha-sig.figma.com/img/0f52/bb1f/52f3c5321b7006aec2f170d48f116075?Expires=1743984000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=ckm65gx8mq9gQUSAh5X8YLGPR4Jizw92y-soNy56BBXeZ54PKSddfKqPF2Q67pMmIDPRRiuS8u0586Dnm72Qjidhxktb-qW6FT-JNbenTFwd6544aBKczpoog4aM8i8-3ChoLSGf8RBuH4EoS-rJt~2sFcDjea8eenP85yTkWAgCdK1BEXckhokDQdUdbOObQNh4W7ZauMy3KwU6pLkOUv51IgTjlh31hXidvIg6EZBs9WN4QQUfBhlHgFI54bstOv5EtF6-GwqFVe3BSB1qUjANL-SKNY6573T2oFYebGiUi10wfld-rMbdOFrf0H7icF04LGd3NfYHBFXZhIsRTw__"/>
+        <div class="absolute flex gap-20 place-content-center mb-4 -bottom-6 right-1/4 mr-24">
+            
+            
+
+            <button  (click)="toggleFullScreen()" class="bg-yellow w-124 h-60 p-2 rounded-xl text-gray_principal font-bold text-2xl">FEED</button>
+            <button onclick="document.getElementById('miDiv').requestFullscreen()" class="bg-yellow w-124 h-60 p-2 rounded-xl text-gray_principal font-bold text-2xl">PLAY</button>
+            <button class="bg-yellow w-124 h-60 p-2 rounded-xl text-gray_principal font-bold text-2xl">DRINK</button>
+            <button class="bg-yellow w-124 h-60 p-2 rounded-xl text-gray_principal font-bold text-2xl">SLEEP</button> 
+        </div>
+    </div>
+    <div *ngif="isFullScreen"  class="bg-transparent" id="miDiv" style="width: 300px; height: 200px;">
+        <div class="absolute flex gap-20 place-content-center mb-4 -bottom-6 right-1/4 mr-24">
+            <img src="../../../assets/logito.png" class="w-20 h-20 absolute bottom-0  mb-60 right-96"/>
+            <button  (click)="toggleFullScreen()" class="bg-yellow w-124 h-60 p-2 rounded-xl text-gray_principal font-bold text-2xl">FEED</button>
+            <button onclick="document.getElementById('miDiv').requestFullscreen()" class="bg-yellow w-124 h-60 p-2 rounded-xl text-gray_principal font-bold text-2xl">PLAY</button>
+            <button class="bg-yellow w-124 h-60 p-2 rounded-xl text-gray_principal font-bold text-2xl">DRINK</button>
+            <button class="bg-yellow w-124 h-60 p-2 rounded-xl text-gray_principal font-bold text-2xl">SLEEP</button>
+        </div>
+    </div>
+</div>

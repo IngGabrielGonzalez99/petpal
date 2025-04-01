@@ -1,4 +1,17 @@
-<div class="grid w-80 h-300 place-items-center gap-y-4">
-  <img class="w-300 h-300 rounded-full" src="https://s3-alpha-sig.figma.com/img/9484/96a2/7c1a98f3f326886c56aaa6c8a2fd0135?Expires=1742169600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=DcIyMMMzBSEAcIu4x5yXAg7YW8OSXRyuTVvX~Fc380XL-8Al1awH5E~ljuQxYlq1mRbJWmVb1CUXXMme7AfCgadHQhIxoSgXh3NX7SX~oodUBF7FLblFBR6shJCl8H6W~HeT56g446u~K6ApHNYVVAAwcsV-bRGjrVgVlsaXnSnpYmhx9JuLIs4yR6yPBwhIBze4riqK04yJo647Sx9u7SWpc2s0dirLjOc~qnYIMOo3oUFEilMEmF7lO5N2m7BXO6qb2WUad5KG7xijf6Y7Vtkb-9A5kqqdIjZI6oWv66kmhW-U67K1G9Thy4rWGfWUG3-MMI3L3bOQIg8xeQlBHA__"/>
-  <app-button></app-button>
+<div class="grid grid-cols-4 gap-10 px-20">
+  <div *ngFor="let animal of animals" class="flex flex-col items-center justify-center bg-white shadow-lg rounded-lg p-4">
+    <!-- Imagen del animal -->
+    <div class="mb-4">
+      <img 
+        class="w-full h-64 rounded-lg object-cover" 
+        [src]="animal.url" 
+        alt="Imagen de {{ animal.id }}" />
+    </div>
+    <!-- Descripción del animal -->
+    <div class="text-center mb-4">
+      <p class="text-sm text-gray-600">ID: {{ animal.id }}</p>
+    </div>
+    <!-- Botón personalizado -->
+    <app-button></app-button>
+  </div>
 </div>

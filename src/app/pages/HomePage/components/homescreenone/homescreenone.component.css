@@ -5,6 +5,10 @@
   position: absolute;
 
 }
+.imagen_dos{
+  width: 220px;
+  height: 700px;
+}
 
 svg{
   position: absolute;
