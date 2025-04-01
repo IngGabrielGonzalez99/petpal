@@ -2,3 +2,93 @@ image{
     width: 1149px;
     height: 650px;
 }
+
+.level-container {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.exp-bar {
+  width: 200px;
+  height: 15px;
+  background: #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 5px 0;
+}
+
+.exp-progress {
+  height: 100%;
+  background: linear-gradient(90deg, #4CAF50, #8BC34A);
+  transition: width 0.5s ease;
+}
+
+.exp-feedback {
+  position: absolute;
+  top: -25px;
+  right: 0;
+  color: #4CAF50;
+  font-weight: bold;
+  animation: floatUp 1s ease-out;
+}
+
+@keyframes floatUp {
+  0% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-30px); }
+}
+
+
+.notification {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.7);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  z-index: 1000;
+  animation: fadeInOut 2.5s;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; top: 0; }
+  10% { opacity: 1; top: 20px; }
+  90% { opacity: 1; top: 20px; }
+  100% { opacity: 0; top: 0; }
+}
+
+/* Estilos para precios dinámicos */
+.action-button {
+  position: relative;
+  padding: 10px 15px;
+}
+
+.price-detail {
+  display: block;
+  font-size: 0.7rem;
+  margin-top: 3px;
+  color: #666;
+}
+
+.level-bonus {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: gold;
+  color: black;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  font-size: 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+

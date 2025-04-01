@@ -1,30 +1,107 @@
-<h3 class="text-center font-bold text-principal text-6xl font-press">Play & Enjoy!</h3>
 <div class="flex justify-center">
-    <div class="bg-gradient-to-t from-principal to-yellow  h-700 w-1200 mt-4 static mx-20">
-        <div class="flex flew-row place-content-center">
-            <p class="text-gray_principal font-bold tracking-[0.05em] text-8xl absolute mt-40 font-press">PETGAME</p>
-            <p class="text-white font-bold text-5xl tracking-[0.05em] absolute mt-64 font-micro uppercase">Welcome to petpal game</p>
-             <img  class="absolute bottom-0 mb-16" src="../../../assets/dog.png"/>
-             <button  (click)="toggleFullScreen()" class="absolute bottom-72 bg-yellow w-180 h-60 p-2 rounded-xl text-gray_principal font-bold text-2xl">START</button>
-        </div>
-        <img class="w-full h-full py-4 px-4" src="https://s3-alpha-sig.figma.com/img/0f52/bb1f/52f3c5321b7006aec2f170d48f116075?Expires=1743984000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=ckm65gx8mq9gQUSAh5X8YLGPR4Jizw92y-soNy56BBXeZ54PKSddfKqPF2Q67pMmIDPRRiuS8u0586Dnm72Qjidhxktb-qW6FT-JNbenTFwd6544aBKczpoog4aM8i8-3ChoLSGf8RBuH4EoS-rJt~2sFcDjea8eenP85yTkWAgCdK1BEXckhokDQdUdbOObQNh4W7ZauMy3KwU6pLkOUv51IgTjlh31hXidvIg6EZBs9WN4QQUfBhlHgFI54bstOv5EtF6-GwqFVe3BSB1qUjANL-SKNY6573T2oFYebGiUi10wfld-rMbdOFrf0H7icF04LGd3NfYHBFXZhIsRTw__"/>
-        <div class="absolute flex gap-20 place-content-center mb-4 -bottom-6 right-1/4 mr-24">
-            
-            
+  <!-- Main Menu Screen -->
+  <div *ngIf="!gameStarted" class="bg-gradient-to-t from-principal to-yellow h-700 w-1200 mt-4 static mx-20">
+    <div class="flex flew-row place-content-center">
+      <p class="text-gray_principal font-bold tracking-[0.05em] text-8xl absolute mt-40 font-press">PETGAME</p>
+      <p class="text-white font-bold text-5xl tracking-[0.05em] absolute mt-64 font-micro uppercase">Welcome to petpal game</p>
+      <img class="absolute bottom-0 mb-16" src="../../../assets/dog.png"/>
+      <button (click)="startGame()" class="absolute bottom-72 bg-yellow w-180 h-60 p-2 rounded-xl text-gray_principal font-bold text-2xl">START</button>
+    </div>
+    <img class="w-full h-full py-4 px-4" src="https://s3-alpha-sig.figma.com/img/0f52/bb1f/52f3c5321b7006aec2f170d48f116075?Expires=1743984000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=ckm65gx8mq9gQUSAh5X8YLGPR4Jizw92y-soNy56BBXeZ54PKSddfKqPF2Q67pMmIDPRRiuS8u0586Dnm72Qjidhxktb-qW6FT-JNbenTFwd6544aBKczpoog4aM8i8-3ChoLSGf8RBuH4EoS-rJt~2sFcDjea8eenP85yTkWAgCdK1BEXckhokDQdUdbOObQNh4W7ZauMy3KwU6pLkOUv51IgTjlh31hXidvIg6EZBs9WN4QQUfBhlHgFI54bstOv5EtF6-GwqFVe3BSB1qUjANL-SKNY6573T2oFYebGiUi10wfld-rMbdOFrf0H7icF04LGd3NfYHBFXZhIsRTw__"/>
+  </div>
 
-            <button  (click)="toggleFullScreen()" class="bg-yellow w-124 h-60 p-2 rounded-xl text-gray_principal font-bold text-2xl">FEED</button>
-            <button onclick="document.getElementById('miDiv').requestFullscreen()" class="bg-yellow w-124 h-60 p-2 rounded-xl text-gray_principal font-bold text-2xl">PLAY</button>
-            <button class="bg-yellow w-124 h-60 p-2 rounded-xl text-gray_principal font-bold text-2xl">DRINK</button>
-            <button class="bg-yellow w-124 h-60 p-2 rounded-xl text-gray_principal font-bold text-2xl">SLEEP</button> 
-        </div>
+  <!-- Game Screen -->
+  <div *ngIf="gameStarted" class="bg-white h-700 w-1200 mt-4 static mx-20 relative">
+    <div *ngIf="lostGame" class="absolute inset-0 bg-black bg-opacity-70 flex flex-col items-center justify-center z-50">
+      <div class="text-white text-6xl font-bold mb-8 animate-bounce">¡PERDISTE!</div>
+      <div class="text-white text-2xl mb-8">Tu mascota no soportó</div>
+      <button (click)="restartGame()"
+              class="bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-6 rounded-lg text-2xl transition-all">
+        REINICIAR JUEGO
+      </button>
     </div>
-    <div *ngif="isFullScreen"  class="bg-transparent" id="miDiv" style="width: 300px; height: 200px;">
-        <div class="absolute flex gap-20 place-content-center mb-4 -bottom-6 right-1/4 mr-24">
-            <img src="../../../assets/logito.png" class="w-20 h-20 absolute bottom-0  mb-60 right-96"/>
-            <button  (click)="toggleFullScreen()" class="bg-yellow w-124 h-60 p-2 rounded-xl text-gray_principal font-bold text-2xl">FEED</button>
-            <button onclick="document.getElementById('miDiv').requestFullscreen()" class="bg-yellow w-124 h-60 p-2 rounded-xl text-gray_principal font-bold text-2xl">PLAY</button>
-            <button class="bg-yellow w-124 h-60 p-2 rounded-xl text-gray_principal font-bold text-2xl">DRINK</button>
-            <button class="bg-yellow w-124 h-60 p-2 rounded-xl text-gray_principal font-bold text-2xl">SLEEP</button>
-        </div>
+    <div *ngIf="notificationMessage" class="notification">
+      {{notificationMessage}}
     </div>
+    <div class="absolute top-4 right-4 bg-yellow-200 p-3 rounded-lg shadow-lg">
+      <p class="text-xl font-bold flex items-center">Monedas: <mat-icon>attach_money</mat-icon>{{coins}}
+      </p>
+    </div>
+    <div class="level-container">
+      <div class="level-info">
+        <span class="level-label">Nivel {{currentLevel}}</span>
+        <div class="exp-bar">
+          <div class="exp-progress" [style.width.%]="(currentExp / expToNextLevel) * 100"></div>
+        </div>
+        <span class="exp-text">{{currentExp}}/{{expToNextLevel}} EXP</span>
+      </div>
+
+    </div>
+    <!-- Pet Display Area -->
+    <div class="flex flex-col items-center justify-center h-full">
+      <!-- Pet Image (changes based on state) -->
+      <img *ngIf="petState === 'normal'" src="../../../assets/pet-normal.jpg" class="w-64 h-64 rounded-xl"/>
+      <img *ngIf="petState === 'happy'" src="../../../assets/pet-happy.jpg" class="w-64 h-64 rounded-xl"/>
+      <img *ngIf="petState === 'hungry'" src="../../../assets/pet-hungry.jpg" class="w-64 h-64 rounded-xl"/>
+      <img *ngIf="petState === 'sleepy'" src="../../../assets/pet-sleepy.jpg" class="w-64 h-64 rounded-xl"/>
+      <img *ngIf="petState === 'thirsty'" src="../../../assets/pet-thirsty.jpg" class="w-64 h-64 rounded-xl"/>
+
+      <!-- Stats Display -->
+      <div class="mt-8 grid grid-cols-2 gap-4">
+        <div class="bg-gray-200 p-2 rounded">
+          <p class="font-bold">Hambre: {{hunger}}/100</p>
+          <div class="w-full bg-gray-300 rounded-full h-4">
+            <div class="bg-green-500 h-4 rounded-full" [style.width.%]="hunger"></div>
+          </div>
+        </div>
+        <div class="bg-gray-200 p-2 rounded">
+          <p class="font-bold">Felicidad: {{happiness}}/100</p>
+          <div class="w-full bg-gray-300 rounded-full h-4">
+            <div class="bg-green-500 h-4 rounded-full" [style.width.%]="happiness"></div>
+          </div>
+        </div>
+        <div class="bg-gray-200 p-2 rounded">
+          <p class="font-bold">Sed: {{thirst}}/100</p>
+          <div class="w-full bg-gray-300 rounded-full h-4">
+            <div class="bg-green-500 h-4 rounded-full" [style.width.%]="thirst"></div>
+          </div>
+        </div>
+        <div class="bg-gray-200 p-2 rounded">
+          <p class="font-bold">Energía: {{energy}}/100</p>
+          <div class="w-full bg-gray-300 rounded-full h-4">
+            <div class="bg-green-500 h-4 rounded-full" [style.width.%]="energy"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Action Buttons -->
+    <div class="absolute flex gap-20 bottom-10  left-52">
+<!-- Botón de trabajo -->
+<button (click)="work()" [disabled]="isWorking"
+        class="work-button p-2 rounded-md bg-yellow text-white">
+  {{isWorking ? 'TRABAJANDO...' : 'TRABAJAR (+' + workIncome + '$)'}}
+  <span class="level-bonus">Nivel {{currentLevel}}</span>
+</button>
+
+<!-- Precios dinámicos en los botones -->
+<button (click)="feed()" class="action-button p-2 rounded-md bg-principal text-white">
+  ALIMENTAR ({{foodPrice}}$)
+  <span class="price-detail">+{{10 + currentLevel}} energía</span>
+</button>
+
+<button (click)="giveDrink()" class="action-button p-2 rounded-md bg-principal text-white">
+  BEBER ({{waterPrice}}$)
+  <span class="price-detail">+{{8 + currentLevel}} hidratación</span>
+</button>
+
+<button (click)="play()" class="action-button p-2 rounded-md bg-principal text-white">
+  JUGAR ({{playCost}}$)
+  <span class="price-detail">+{{15 + currentLevel*2}} felicidad</span>
+</button>
+<button (click)="sleep()" class="action-button p-2 rounded-md bg-principal text-white">
+  DORMIR
+  <span class="price-detail">+40 energía</span> <!-- Indica que dormir recupera energía -->
+</button>
+    </div>
+  </div>
 </div>
